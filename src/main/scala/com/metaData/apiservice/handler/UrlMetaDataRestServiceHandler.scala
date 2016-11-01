@@ -13,11 +13,11 @@ trait UrlMetaDataRestServiceHandler {
   implicit val system = ActorSystem("UrlMetaDataActor")
 
   implicit val dispatcher = system.dispatcher
-  val scraperActor = system.actorOf(Props[UrlMetaDataActor], name = "UrlMetaDataActor")
+  val urlMetaDataActor = system.actorOf(Props[UrlMetaDataActor], name = "UrlMetaDataActor")
   implicit val timeout = Timeout(30 seconds)
 
   def retrieveData(url: String): Future[String] = {
-    val result = ask(scraperActor, url)
+    val result = ask(urlMetaDataActor, url)
     result map {
       response =>
         response match {

@@ -13,7 +13,7 @@ import scala.util.{Failure, Success}
 
 object UrlMetadataHttpServer extends App with LazyLogging {
 
-  implicit val system = ActorSystem("proxyurl")
+  implicit val system = ActorSystem("server")
   implicit val executor = system.dispatcher
   implicit val materializer = ActorMaterializer()
 
@@ -30,11 +30,11 @@ object UrlMetadataHttpServer extends App with LazyLogging {
       val localAddress = binding.localAddress
       println(ansi().fg(GREEN).a(
         """
-           ___                              _   _         _
-          | _ \  _ _   ___  __ __  _  _    | | | |  _ _  | |
-          |  _/ | '_| / _ \ \ \ / | || |   | |_| | | '_| | |
-          |_|   |_|   \___/ /_\_\  \_, |    \___/  |_|   |_|
-          |__/
+            ___
+           / __|  ___   _ _  __ __  ___   _ _
+           \__ \ / -_) | '_| \ V / / -_) | '_|
+           |___/ \___| |_|    \_/  \___| |_|
+
         """
       ).reset())
       //scalastyle:on

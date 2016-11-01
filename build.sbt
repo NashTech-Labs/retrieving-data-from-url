@@ -1,3 +1,4 @@
+import scoverage.ScoverageKeys
 
 name := "GetMetaDataFromUrlServer"
 
@@ -14,6 +15,11 @@ libraryDependencies ++= Seq(
 "com.typesafe.akka"          %% "akka-slf4j"                     % akkaHttpVersion,
 "com.typesafe.scala-logging" %% "scala-logging"                  % "3.4.0",
   "net.liftweb"                %% "lift-json"                      % "2.6",
-  "net.databinder.dispatch" % "dispatch-jsoup_2.10" % "0.11.3"
+  "net.databinder.dispatch" % "dispatch-jsoup_2.10" % "0.11.3",
+  "org.scalatest"              %% "scalatest"                      % "2.2.6"
 )
+
+ScoverageKeys.coverageMinimum := 90
+ScoverageKeys.coverageFailOnMinimum := true
+
 
